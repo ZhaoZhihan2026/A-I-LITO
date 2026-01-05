@@ -3,10 +3,6 @@
 ## 1. Introduction
 To address the significant decline in positioning accuracy and stability of existing multi-sensor fusion simultaneous localization and mapping in challenging scenarios such as low illumination and field-of-view change, a multi-modal tightly-coupled positioning framework integrating thermal camera/light detection and ranging/inertial measurement unit is established, and a method with adaptive enhancement based on field-of-view perception is proposed.
 
-<div align="center">
-    <img src="pics/Framework.png" width = 100% >
-</div>
-
 ### 1.1 Related video
 
 Our accompanying video is now available on [**Baidu Netdisk**](https://pan.baidu.com/s/1yraP4kM9DqLU3qpNP8CQ4g, Extraction code: qrm9).
