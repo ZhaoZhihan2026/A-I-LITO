@@ -1,0 +1,89 @@
+common:
+  img_topic: "/thermal_image_raw"
+  lid_topic: "/velodyne_points"
+  imu_topic: "/handsfree/imu"
+  img_en: 1 
+  lidar_en: 1 
+  # m2dgr_en: 1 //zzh m2dgr_en
+  ros_driver_bug_fix: false 
+
+extrin_calib:
+  #  lidar -> imu
+  extrinsic_T: [0.27255, -0.00053,0.17954]  
+  extrinsic_R: [1, 0, 0, 0, 1, 0, 0, 0, 1]
+  #  lidar -> camera
+  Rcl: [0, -1, 0, 0, 0, -1, 1, 0, 0]
+  Pcl: [0.17065,0.65379,-0.30474]
+ 
+time_offset: 
+  imu_time_offset: 0.0  
+  img_time_offset: 0.0  
+  exposure_time_init: 0.0 
+
+preprocess:
+  # point_filter_num: 2  # 
+  # filter_size_surf: 0.1  # 
+  lidar_type: 2
+  scan_line: 32
+  blind: 2.0
+
+vio:
+  # max_iterations: 3  #
+  outlier_threshold: 1000  #
+  img_point_cov: 100  #
+  patch_size: 8  #
+  patch_pyrimid_level: 4  
+  normal_en: true  #
+  raycast_en: false  #
+  inverse_composition_en: false  #
+  exposure_estimate_en: true  #
+  inv_expo_cov: 0.1  #
+
+imu:
+  imu_en: true  #
+  imu_int_frame: 30  #
+  acc_cov: 0.012820343288774358
+  gyr_cov: 0.0021309311394972831
+  b_acc_cov: 0.0013677912958097768
+  b_gyr_cov: 0.00036603917782528627
+# 已知gyr_n: 2.3417543020438883e-03
+# gyr_w: 1.4428407712885209e-05
+# acc_n: 3.7686306102624571e-02
+# acc_w: 1.1416642385952368e-03
+# 求：acc_cov、gyr_cov、b_acc_cov、b_gyr_cov
+
+lio:
+  max_iterations: 5  #
+  dept_err: 0.02  #
+  beam_err: 0.05  #
+  min_eigen_value: 0.005 # 原：0.0025   影响了哪里
+  voxel_size: 0.5  # 原：0.5 影响了哪里
+  max_layer: 2  #
+  max_points_num: 50  #
+  layer_init_num: [5, 5, 5, 5, 5]  #
+
+local_map:  
+  map_sliding_en: false  
+  half_map_size: 100  #
+  sliding_thresh: 8  #
+
+uav:
+  imu_rate_odom: false  #
+  gravity_align_en: false  #
+
+publish:
+  dense_map_en: true  #
+  pub_effect_point_en: false  #
+  pub_plane_en: false  #
+  pub_scan_num: 1  #
+  blind_rgb_points: 0.0  #
+
+evo:
+  seq_name: "street06"
+  pose_output_en: true
+
+pcd_save:
+  pcd_save_en: true
+  colmap_output_en: false 
+  filter_size_pcd: 0.15 
+  interval: -1 

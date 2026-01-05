@@ -1,0 +1,20 @@
+<launch>
+
+	<arg name="rviz" default="true" />
+    
+    <rosparam command="load" file="$(find fast_livo)/config/xindalidar.yaml" />
+
+    <node pkg="a-i-lito" type="fastlivo_mapping" name="laserMapping" output="screen">
+		<rosparam file="$(find a-i-lito)/config/xindacamera.yaml" />
+	</node>
+
+    <group if="$(arg rviz)">
+		<node launch-prefix="nice" pkg="rviz" type="rviz" name="rviz" args="-d $(find a-i-lito)/rviz_cfg/a-i-lito.rviz" />
+	</group>
+	
+	<node pkg="image_transport" type="republish" name="republish" args="compressed in:=/camera/color/image_raw raw out:=/camera/color/image_raw" output="screen" respawn="true"/>
+
+launch-prefix="gdb -ex run --args"
+launch-prefix="valgrind --leak-check=full"
+</launch> 	
+
