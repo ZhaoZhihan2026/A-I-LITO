@@ -36,6 +36,7 @@ source ~/catkin_ws/devel/setup.bash
 ```
 
 ## 4. Key Parameter Setting Details
+Supplementary files including `KeyParaSetting.txt` (key parameter configuration text) and `Sensitivity analysis of parameters.docx` (parameter sensitivity analysis document) are attached, which can be used to check the detailed values of all thresholds and the comparative experimental results under parameter perturbation.
 ### 4.1 Basic Threshold Parameters
 The core threshold parameters used in the experiment are determined through multiple experiments based on typical urban scene datasets (roads, blocks, semi-structured parks), and can be fine-tuned for other scenarios. Specific parameter statistics are shown in Table 1:
 
